@@ -1,0 +1,617 @@
+{% extends "base.html" %}
+
+{% block title %}About - PaperSummarizer AI{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Hero Section -->
+    <div class="row text-center mb-5">
+        <div class="col-12">
+            <div class="hero-section py-5">
+                <h1 class="display-3 fw-bold mb-4">
+                    <i data-feather="zap" class="text-primary me-3"></i>About PaperSummarizer AI
+                </h1>
+                <p class="lead text-muted">
+                    Revolutionizing document analysis with cutting-edge artificial intelligence
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2 class="text-center mb-5">
+                <i data-feather="star" class="text-primary me-2"></i>Key Features
+            </h2>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center">
+                    <div class="feature-icon mb-3">
+                        <i data-feather="type" class="text-primary"></i>
+                    </div>
+                    <h5 class="card-title">Text Processing</h5>
+                    <p class="card-text text-muted">
+                        Paste any text content and get instant intelligent summaries with advanced natural language processing.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center">
+                    <div class="feature-icon mb-3">
+                        <i data-feather="globe" class="text-primary"></i>
+                    </div>
+                    <h5 class="card-title">URL Extraction</h5>
+                    <p class="card-text text-muted">
+                        Extract and summarize content from any web page by simply providing the URL.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center">
+                    <div class="feature-icon mb-3">
+                        <i data-feather="file-text" class="text-primary"></i>
+                    </div>
+                    <h5 class="card-title">PDF Analysis</h5>
+                    <p class="card-text text-muted">
+                        Upload PDF documents and extract key insights with our intelligent text extraction engine.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center">
+                    <div class="feature-icon mb-3">
+                        <i data-feather="layers" class="text-primary"></i>
+                    </div>
+                    <h5 class="card-title">Batch Processing</h5>
+                    <p class="card-text text-muted">
+                        Process multiple PDF files simultaneously for efficient bulk document analysis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology Section -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card tech-card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i data-feather="cpu" class="me-2"></i>Advanced AI Technology Stack
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-8">
+                            <h5 class="text-primary mb-3">Intelligent Extractive Summarization</h5>
+                            <p class="mb-3">
+                                Our platform uses sophisticated extractive summarization algorithms that analyze text structure, 
+                                word frequency patterns, and sentence positioning to identify the most important content. This 
+                                approach ensures high-quality summaries while maintaining privacy through local processing.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i data-feather="check" class="text-success me-2"></i>
+                                    <strong>Smart Sentence Scoring:</strong> Advanced algorithms rank sentences by importance
+                                </li>
+                                <li class="mb-2">
+                                    <i data-feather="check" class="text-success me-2"></i>
+                                    <strong>Context Awareness:</strong> Considers document structure and content flow
+                                </li>
+                                <li class="mb-2">
+                                    <i data-feather="check" class="text-success me-2"></i>
+                                    <strong>Privacy First:</strong> All processing happens locally on our servers
+                                </li>
+                                <li class="mb-2">
+                                    <i data-feather="check" class="text-success me-2"></i>
+                                    <strong>No External Dependencies:</strong> Works without internet APIs or third-party services
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="tech-visual">
+                                <i data-feather="cpu" style="width: 80px; height: 80px;" class="text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technical Details -->
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="tech-detail">
+                                <h6 class="text-info mb-2">
+                                    <i data-feather="database" class="me-2"></i>Data Processing
+                                </h6>
+                                <p class="small text-muted mb-0">
+                                    Utilizes natural language processing techniques including tokenization, 
+                                    frequency analysis, and semantic understanding to extract key information 
+                                    from documents of any length.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="tech-detail">
+                                <h6 class="text-warning mb-2">
+                                    <i data-feather="zap" class="me-2"></i>Performance
+                                </h6>
+                                <p class="small text-muted mb-0">
+                                    Optimized algorithms ensure fast processing times even for large documents, 
+                                    with typical summaries generated in under 10 seconds for most content types.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Methods Detail -->
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2 class="text-center mb-5">
+                <i data-feather="layers" class="text-primary me-2"></i>Supported Input Methods
+            </h2>
+        </div>
+        
+        <div class="col-lg-10 mx-auto">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 input-method-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i data-feather="type" class="text-primary me-3" style="width: 32px; height: 32px;"></i>
+                                <h5 class="mb-0">Direct Text Input</h5>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Paste any text content directly into our interface. Perfect for articles, 
+                                research papers, reports, and other textual content.
+                            </p>
+                            <ul class="list-unstyled small">
+                                <li><strong>Capacity:</strong> 50 to 50,000 characters</li>
+                                <li><strong>Processing Time:</strong> 2-5 seconds</li>
+                                <li><strong>Best For:</strong> Articles, essays, research papers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 input-method-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i data-feather="globe" class="text-success me-3" style="width: 32px; height: 32px;"></i>
+                                <h5 class="mb-0">Web URL Extraction</h5>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Simply provide a URL and our system will automatically extract the main 
+                                content from web pages, removing ads and navigation elements.
+                            </p>
+                            <ul class="list-unstyled small">
+                                <li><strong>Supported Sites:</strong> News, blogs, articles, documentation</li>
+                                <li><strong>Processing Time:</strong> 5-15 seconds</li>
+                                <li><strong>Best For:</strong> Online articles, news, blog posts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 input-method-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i data-feather="file-text" class="text-warning me-3" style="width: 32px; height: 32px;"></i>
+                                <h5 class="mb-0">PDF Document Processing</h5>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Upload PDF files and our advanced text extraction engine will process 
+                                the content and generate comprehensive summaries.
+                            </p>
+                            <ul class="list-unstyled small">
+                                <li><strong>File Size Limit:</strong> Up to 10MB per file</li>
+                                <li><strong>Processing Time:</strong> 10-30 seconds</li>
+                                <li><strong>Best For:</strong> Research papers, reports, manuals</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 input-method-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i data-feather="folder" class="text-danger me-3" style="width: 32px; height: 32px;"></i>
+                                <h5 class="mb-0">Batch PDF Processing</h5>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Process multiple PDF files simultaneously, perfect for researchers 
+                                and professionals who need to analyze multiple documents at once.
+                            </p>
+                            <ul class="list-unstyled small">
+                                <li><strong>Batch Size:</strong> Multiple files up to 10MB each</li>
+                                <li><strong>Processing Time:</strong> Varies by number and size</li>
+                                <li><strong>Best For:</strong> Research collections, document sets</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2 class="text-center mb-5">
+                <i data-feather="settings" class="text-primary me-2"></i>How It Works
+            </h2>
+        </div>
+        
+        <div class="col-lg-10 mx-auto">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h5>Input Your Content</h5>
+                        <p class="text-muted">
+                            Choose from four input methods: raw text, URL, single PDF, or batch PDF processing.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h5>AI Processing</h5>
+                        <p class="text-muted">
+                            Our BART model analyzes your content, understanding context and extracting key information.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h5>Generate Summary</h5>
+                        <p class="text-muted">
+                            Receive a concise, coherent summary that captures the essential points of your document.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h5>Save & Access</h5>
+                        <p class="text-muted">
+                            Your summaries are automatically saved to your history for future reference and review.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Use Cases Section -->
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2 class="text-center mb-5">
+                <i data-feather="users" class="text-primary me-2"></i>Perfect For Every Professional
+            </h2>
+        </div>
+        
+        <div class="col-lg-10 mx-auto">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card use-case-card h-100">
+                        <div class="card-body text-center">
+                            <i data-feather="book-open" class="text-primary mb-3" style="width: 48px; height: 48px;"></i>
+                            <h5 class="card-title">Researchers & Academics</h5>
+                            <p class="card-text text-muted">
+                                Quickly process research papers, academic articles, and literature reviews. 
+                                Perfect for literature surveys and keeping up with the latest research.
+                            </p>
+                            <ul class="list-unstyled small text-start">
+                                <li>• Literature reviews and meta-analyses</li>
+                                <li>• Conference paper summaries</li>
+                                <li>• Research proposal abstracts</li>
+                                <li>• Grant application reviews</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card use-case-card h-100">
+                        <div class="card-body text-center">
+                            <i data-feather="briefcase" class="text-success mb-3" style="width: 48px; height: 48px;"></i>
+                            <h5 class="card-title">Business Professionals</h5>
+                            <p class="card-text text-muted">
+                                Streamline your workflow by summarizing reports, market research, 
+                                and industry analysis documents for quick decision-making.
+                            </p>
+                            <ul class="list-unstyled small text-start">
+                                <li>• Market research reports</li>
+                                <li>• Financial documents and earnings calls</li>
+                                <li>• Industry white papers</li>
+                                <li>• Legal document reviews</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card use-case-card h-100">
+                        <div class="card-body text-center">
+                            <i data-feather="edit-3" class="text-warning mb-3" style="width: 48px; height: 48px;"></i>
+                            <h5 class="card-title">Content Creators</h5>
+                            <p class="card-text text-muted">
+                                Transform long-form content into digestible summaries for social media, 
+                                newsletters, and content marketing campaigns.
+                            </p>
+                            <ul class="list-unstyled small text-start">
+                                <li>• Blog post summaries</li>
+                                <li>• Newsletter content</li>
+                                <li>• Social media snippets</li>
+                                <li>• Educational material abstracts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Deep Dive -->
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2 class="text-center mb-5">
+                <i data-feather="sliders" class="text-primary me-2"></i>Advanced Features & Capabilities
+            </h2>
+        </div>
+        
+        <div class="col-lg-10 mx-auto">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-detail-card">
+                        <div class="d-flex align-items-start">
+                            <i data-feather="save" class="text-primary me-3 mt-1"></i>
+                            <div>
+                                <h6 class="fw-bold">Persistent History</h6>
+                                <p class="text-muted small mb-0">
+                                    Every summary is automatically saved to your personal history with timestamps, 
+                                    source information, and easy search functionality. Never lose important insights again.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="feature-detail-card">
+                        <div class="d-flex align-items-start">
+                            <i data-feather="smartphone" class="text-success me-3 mt-1"></i>
+                            <div>
+                                <h6 class="fw-bold">Mobile Responsive</h6>
+                                <p class="text-muted small mb-0">
+                                    Fully optimized for mobile devices, tablets, and desktops. 
+                                    Access your summarization tools anywhere, anytime with a seamless experience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="feature-detail-card">
+                        <div class="d-flex align-items-start">
+                            <i data-feather="lock" class="text-warning me-3 mt-1"></i>
+                            <div>
+                                <h6 class="fw-bold">Secure Authentication</h6>
+                                <p class="text-muted small mb-0">
+                                    Protected user accounts with secure password hashing and session management. 
+                                    Your data and summaries are private and accessible only to you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="feature-detail-card">
+                        <div class="d-flex align-items-start">
+                            <i data-feather="download" class="text-info me-3 mt-1"></i>
+                            <div>
+                                <h6 class="fw-bold">Batch Processing</h6>
+                                <p class="text-muted small mb-0">
+                                    Process multiple documents simultaneously with our batch upload feature. 
+                                    Perfect for research projects and large document collections.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Specifications -->
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card tech-specs-card">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">
+                        <i data-feather="settings" class="me-2"></i>Technical Specifications
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <h6 class="text-primary mb-3">System Requirements</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <strong>Browser Support:</strong> Chrome, Firefox, Safari, Edge (latest versions)
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Internet Connection:</strong> Required for web access only
+                                </li>
+                                <li class="mb-2">
+                                    <strong>File Upload:</strong> JavaScript enabled for file handling
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Responsive Design:</strong> Works on screens 320px and above
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <h6 class="text-success mb-3">Processing Limits</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <strong>Text Input:</strong> 50 - 50,000 characters
+                                </li>
+                                <li class="mb-2">
+                                    <strong>PDF Files:</strong> Up to 10MB per file
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Batch Processing:</strong> Multiple files, 10MB each
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Processing Time:</strong> 2-30 seconds depending on content
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <h6 class="text-warning mb-3">Backend Architecture</h6>
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <span class="badge bg-secondary me-2">Flask Framework</span>
+                                    <span class="badge bg-secondary me-2">Python 3.11</span>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <span class="badge bg-secondary me-2">Natural Language Processing</span>
+                                    <span class="badge bg-secondary me-2">PDF Processing</span>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <span class="badge bg-secondary me-2">Web Scraping</span>
+                                    <span class="badge bg-secondary me-2">Secure Authentication</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card benefits-card">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">
+                        <i data-feather="award" class="text-primary me-2"></i>Why Choose PaperSummarizer AI?
+                    </h3>
+                    
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <div class="benefit-item text-center">
+                                <i data-feather="shield" class="text-success mb-2" style="width: 32px; height: 32px;"></i>
+                                <h6 class="mb-1">Privacy Focused</h6>
+                                <small class="text-muted">All processing happens locally - your data never leaves our servers</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <div class="benefit-item text-center">
+                                <i data-feather="zap" class="text-warning mb-2" style="width: 32px; height: 32px;"></i>
+                                <h6 class="mb-1">Lightning Fast</h6>
+                                <small class="text-muted">Optimized algorithms for rapid summarization and processing</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <div class="benefit-item text-center">
+                                <i data-feather="target" class="text-info mb-2" style="width: 32px; height: 32px;"></i>
+                                <h6 class="mb-1">Highly Accurate</h6>
+                                <small class="text-muted">Advanced algorithms ensure relevant and coherent summaries</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <div class="benefit-item text-center">
+                                <i data-feather="heart" class="text-danger mb-2" style="width: 32px; height: 32px;"></i>
+                                <h6 class="mb-1">User Friendly</h6>
+                                <small class="text-muted">Intuitive interface designed for users of all technical levels</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p class="lead mb-3">Ready to transform your document workflow?</p>
+                        <a href="{{ url_for('main.index') }}" class="btn btn-light btn-lg me-3">
+                            <i data-feather="play" class="me-2"></i>Try It Now
+                        </a>
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-outline-light btn-lg">
+                            <i data-feather="user-plus" class="me-2"></i>Create Account
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Animate feature cards on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe all feature cards
+    document.querySelectorAll('.feature-card, .tech-card, .benefits-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+
+    // Add hover effects to process steps
+    document.querySelectorAll('.process-step').forEach(step => {
+        step.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        step.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+{% endblock %}

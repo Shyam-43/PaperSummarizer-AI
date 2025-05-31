@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block title %}History - PaperSummarizer AI{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <h1 class="display-5 fw-bold mb-2">
+                        <i data-feather="archive" class="text-primary me-3"></i>Summary History
+                    </h1>
+                    <p class="text-muted mb-0">
+                        View and manage your previous summarization results
+                    </p>
+                </div>
+                <div class="text-end">
+                    <div class="badge bg-primary fs-6 px-3 py-2">
+                        {{ summaries|length }} Total Summaries
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if summaries %}
+    <!-- Summary Statistics -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card stats-card">
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-3 col-6 mb-3 mb-md-0">
+                            <div class="stat-item">
+                                <i data-feather="type" class="text-info mb-2"></i>
+                                <h5 class="mb-1">{{ summaries|selectattr('input_type', 'equalto', 'text')|list|length }}</h5>
+                                <small class="text-muted">Text Summaries</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3 mb-md-0">
+                            <div class="stat-item">
+                                <i data-feather="globe" class="text-success mb-2"></i>
+                                <h5 class="mb-1">{{ summaries|selectattr('input_type', 'equalto', 'url')|list|length }}</h5>
+                                <small class="text-muted">URL Summaries</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3 mb-md-0">
+                            <div class="stat-item">
+                                <i data-feather="file-text" class="text-warning mb-2"></i>
+                                <h5 class="mb-1">{{ summaries|selectattr('input_type', 'equalto', 'pdf')|list|length }}</h5>
+                                <small class="text-muted">PDF Summaries</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <i data-feather="layers" class="text-danger mb-2"></i>
+                                <h5 class="mb-1">{{ summaries|selectattr('input_type', 'equalto', 'batch_pdf')|list|length }}</h5>
+                                <small class="text-muted">Batch Summaries</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summaries List -->
+    <div class="row">
+        <div class="col-12">
+            <div class="accordion" id="summaryAccordion">
+                {% for summary in summaries %}
+                <div class="accordion-item mb-3 summary-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" 
+                                data-bs-toggle="collapse" data-bs-target="#summary{{ loop.index }}">
+                            <div class="d-flex align-items-center w-100">
+                                <div class="me-3">
+                                    {% if summary.input_type == 'text' %}
+                                        <i data-feather="type" class="text-info"></i>
+                                    {% elif summary.input_type == 'url' %}
+                                        <i data-feather="globe" class="text-success"></i>
+                                    {% elif summary.input_type == 'pdf' %}
+                                        <i data-feather="file-text" class="text-warning"></i>
+                                    {% elif summary.input_type == 'batch_pdf' %}
+                                        <i data-feather="layers" class="text-danger"></i>
+                                    {% endif %}
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>
+                                                {% if summary.input_type == 'text' %}
+                                                    Text Summary
+                                                {% elif summary.input_type == 'url' %}
+                                                    URL Summary
+                                                {% elif summary.input_type == 'pdf' %}
+                                                    {{ summary.original_filename or 'PDF Summary' }}
+                                                {% elif summary.input_type == 'batch_pdf' %}
+                                                    Batch PDF ({{ summary.original_filename }})
+                                                {% endif %}
+                                            </strong>
+                                            <div class="summary-preview text-muted small">
+                                                {{ summary.summary[:100] }}{% if summary.summary|length > 100 %}...{% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="text-end">
+                                            <span class="badge bg-secondary">
+                                                {{ summary.input_type.replace('_', ' ').title() }}
+                                            </span>
+                                            <div class="small text-muted mt-1">
+                                                {{ moment(summary.created_at).format('MMM DD, YYYY HH:mm') if moment else summary.created_at[:16] }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="summary{{ loop.index }}" class="accordion-collapse collapse" 
+                         data-bs-parent="#summaryAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <h6 class="text-muted mb-2">
+                                        <i data-feather="info" class="me-2"></i>Details
+                                    </h6>
+                                    <ul class="list-unstyled small">
+                                        <li><strong>Type:</strong> {{ summary.input_type.replace('_', ' ').title() }}</li>
+                                        <li><strong>Created:</strong> {{ summary.created_at[:19].replace('T', ' ') }}</li>
+                                        {% if summary.original_filename %}
+                                        <li><strong>File:</strong> {{ summary.original_filename }}</li>
+                                        {% endif %}
+                                        <li><strong>Summary Length:</strong> {{ summary.summary|length }} characters</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6 class="text-primary mb-3">
+                                        <i data-feather="file-text" class="me-2"></i>Summary
+                                    </h6>
+                                    <div class="summary-content border-start border-primary border-3 ps-3">
+                                        {% if summary.input_type == 'batch_pdf' %}
+                                            <div class="batch-summary">
+                                                {% for line in summary.summary.split('\n\n') %}
+                                                    {% if line.strip() %}
+                                                        {% if line.startswith('**') and line.endswith(':**') %}
+                                                            <h6 class="text-primary mt-3 mb-2">{{ line[2:-3] }}</h6>
+                                                        {% else %}
+                                                            <p class="mb-2">{{ line }}</p>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            <p class="mb-0">{{ summary.summary }}</p>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    {% if summary.content and summary.input_type != 'batch_pdf' %}
+                                    <div class="mt-4">
+                                        <h6 class="text-muted mb-2">
+                                            <i data-feather="eye" class="me-2"></i>Original Content Preview
+                                        </h6>
+                                        <div class="bg-secondary p-3 rounded small">
+                                            {{ summary.content[:300] }}{% if summary.content|length > 300 %}...{% endif %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination or Load More (if needed in future) -->
+    {% if summaries|length > 10 %}
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <button class="btn btn-outline-primary" onclick="loadMoreSummaries()">
+                <i data-feather="more-horizontal" class="me-2"></i>Load More
+            </button>
+        </div>
+    </div>
+    {% endif %}
+
+    {% else %}
+    <!-- Empty State -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card empty-state">
+                <div class="card-body text-center py-5">
+                    <div class="empty-icon mb-4">
+                        <i data-feather="file-text" style="width: 64px; height: 64px;" class="text-muted"></i>
+                    </div>
+                    <h4 class="mb-3">No Summaries Yet</h4>
+                    <p class="text-muted mb-4">
+                        You haven't created any summaries yet. Start by summarizing some content!
+                    </p>
+                    <a href="{{ url_for('main.index') }}" class="btn btn-primary">
+                        <i data-feather="plus" class="me-2"></i>Create Your First Summary
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Add animation effects for summary items
+    const summaryItems = document.querySelectorAll('.summary-item');
+    summaryItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+
+    // Add hover effects to accordion buttons
+    document.querySelectorAll('.accordion-button').forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.backgroundColor = 'var(--bs-gray-100)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('collapsed')) {
+                this.style.backgroundColor = '';
+            } else {
+                this.style.backgroundColor = '';
+            }
+        });
+    });
+
+    // Smooth scroll to opened accordion item
+    document.querySelectorAll('.accordion-button').forEach(button => {
+        button.addEventListener('click', function() {
+            setTimeout(() => {
+                if (!this.classList.contains('collapsed')) {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 300);
+        });
+    });
+
+    // Future: Load more functionality
+    function loadMoreSummaries() {
+        // Implement pagination or lazy loading
+        console.log('Load more summaries');
+    }
+</script>
+{% endblock %}

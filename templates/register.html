@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block title %}Register - PaperSummarizer AI{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <!-- Registration Card -->
+            <div class="card register-card">
+                <div class="card-header text-center bg-success text-white">
+                    <h4 class="mb-0">
+                        <i data-feather="user-plus" class="me-2"></i>Join PaperSummarizer AI
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <p class="text-center text-muted mb-4">
+                        Create your account to start summarizing documents with AI
+                    </p>
+                    
+                    <form method="POST" id="registerForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">
+                                <i data-feather="user" class="me-2"></i>Username
+                            </label>
+                            <input type="text" class="form-control form-control-lg" 
+                                   id="username" name="username" required 
+                                   placeholder="Choose a username"
+                                   value="{{ request.form.username if request.form.username }}"
+                                   pattern="[a-zA-Z0-9_]+" 
+                                   title="Only letters, numbers, and underscores allowed">
+                            <div class="form-text">
+                                At least 3 characters. Only letters, numbers, and underscores.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                <i data-feather="mail" class="me-2"></i>Email Address
+                            </label>
+                            <input type="email" class="form-control form-control-lg" 
+                                   id="email" name="email" required 
+                                   placeholder="Enter your email"
+                                   value="{{ request.form.email if request.form.email }}">
+                            <div class="form-text">
+                                We'll use this for account verification and important updates.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                <i data-feather="lock" class="me-2"></i>Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg" 
+                                       id="password" name="password" required 
+                                       placeholder="Create a secure password"
+                                       minlength="6">
+                                <button class="btn btn-outline-secondary" type="button" 
+                                        id="togglePassword" title="Show/Hide Password">
+                                    <i data-feather="eye" id="eyeIcon"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength mt-2">
+                                <div class="progress" style="height: 4px;">
+                                    <div class="progress-bar" id="strengthBar" role="progressbar" 
+                                         style="width: 0%"></div>
+                                </div>
+                                <small class="form-text" id="strengthText">
+                                    Password must be at least 6 characters long
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="confirmPassword" class="form-label">
+                                <i data-feather="check" class="me-2"></i>Confirm Password
+                            </label>
+                            <input type="password" class="form-control form-control-lg" 
+                                   id="confirmPassword" name="confirm_password" required 
+                                   placeholder="Confirm your password">
+                            <div class="form-text">
+                                <span id="passwordMatch" class="text-muted">Passwords must match</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" 
+                                       id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">
+                                    I agree to use this service responsibly and understand that 
+                                    my data will be processed locally for summarization purposes.
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg" id="submitBtn">
+                                <i data-feather="user-plus" class="me-2"></i>Create Account
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="card-footer text-center bg-light">
+                    <p class="mb-0 text-success">
+                        Already have an account? 
+                        <a href="{{ url_for('auth.login') }}" class="text-success text-decoration-none fw-bold">
+                            Sign in here
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="text-center">
+                        <h6 class="text-muted mb-3">What you get with your account:</h6>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="benefit-item">
+                                    <i data-feather="zap" class="text-primary mb-2"></i>
+                                    <h6 class="small fw-bold">Unlimited Summaries</h6>
+                                    <small class="text-muted">No limits on text, URL, or PDF processing</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="benefit-item">
+                                    <i data-feather="history" class="text-success mb-2"></i>
+                                    <h6 class="small fw-bold">Summary History</h6>
+                                    <small class="text-muted">Access all your past summaries anytime</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="benefit-item">
+                                    <i data-feather="layers" class="text-info mb-2"></i>
+                                    <h6 class="small fw-bold">Batch Processing</h6>
+                                    <small class="text-muted">Process multiple PDFs simultaneously</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Password visibility toggle
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordField = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            eyeIcon.setAttribute('data-feather', 'eye-off');
+        } else {
+            passwordField.type = 'password';
+            eyeIcon.setAttribute('data-feather', 'eye');
+        }
+        
+        feather.replace();
+    });
+
+    // Password strength indicator
+    document.getElementById('password').addEventListener('input', function() {
+        const password = this.value;
+        const strengthBar = document.getElementById('strengthBar');
+        const strengthText = document.getElementById('strengthText');
+        
+        let strength = 0;
+        let text = '';
+        let color = '';
+        
+        if (password.length >= 6) strength += 25;
+        if (password.match(/[a-z]+/)) strength += 25;
+        if (password.match(/[A-Z]+/)) strength += 25;
+        if (password.match(/[0-9]+/)) strength += 25;
+        
+        if (strength === 0) {
+            text = 'Password must be at least 6 characters long';
+            color = 'bg-danger';
+        } else if (strength <= 25) {
+            text = 'Weak password';
+            color = 'bg-danger';
+        } else if (strength <= 50) {
+            text = 'Fair password';
+            color = 'bg-warning';
+        } else if (strength <= 75) {
+            text = 'Good password';
+            color = 'bg-info';
+        } else {
+            text = 'Strong password';
+            color = 'bg-success';
+        }
+        
+        strengthBar.style.width = strength + '%';
+        strengthBar.className = 'progress-bar ' + color;
+        strengthText.textContent = text;
+        strengthText.className = 'form-text ' + (strength > 25 ? 'text-success' : 'text-danger');
+    });
+
+    // Password confirmation check
+    function checkPasswordMatch() {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const matchText = document.getElementById('passwordMatch');
+        
+        if (confirmPassword === '') {
+            matchText.textContent = 'Passwords must match';
+            matchText.className = 'text-muted';
+            return false;
+        } else if (password === confirmPassword) {
+            matchText.textContent = 'Passwords match ✓';
+            matchText.className = 'text-success';
+            return true;
+        } else {
+            matchText.textContent = 'Passwords do not match';
+            matchText.className = 'text-danger';
+            return false;
+        }
+    }
+
+    document.getElementById('password').addEventListener('input', checkPasswordMatch);
+    document.getElementById('confirmPassword').addEventListener('input', checkPasswordMatch);
+
+    // Username validation
+    document.getElementById('username').addEventListener('input', function() {
+        const username = this.value;
+        const isValid = /^[a-zA-Z0-9_]+$/.test(username) && username.length >= 3;
+        
+        if (username.length > 0) {
+            if (isValid) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else {
+                this.classList.remove('is-valid');
+                this.classList.add('is-invalid');
+            }
+        } else {
+            this.classList.remove('is-valid', 'is-invalid');
+        }
+    });
+
+    // Email validation
+    document.getElementById('email').addEventListener('input', function() {
+        const email = this.value;
+        const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        
+        if (email.length > 0) {
+            if (isValid) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else {
+                this.classList.remove('is-valid');
+                this.classList.add('is-invalid');
+            }
+        } else {
+            this.classList.remove('is-valid', 'is-invalid');
+        }
+    });
+
+    // Form submission validation
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const agreeTerms = document.getElementById('agreeTerms').checked;
+        
+        // Validate all fields
+        if (!username || username.length < 3 || !/^[a-zA-Z0-9_]+$/.test(username)) {
+            e.preventDefault();
+            alert('Please enter a valid username (at least 3 characters, letters/numbers/underscores only)');
+            return;
+        }
+        
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            e.preventDefault();
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        if (!password || password.length < 6) {
+            e.preventDefault();
+            alert('Password must be at least 6 characters long');
+            return;
+        }
+        
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            alert('Passwords do not match');
+            return;
+        }
+        
+        if (!agreeTerms) {
+            e.preventDefault();
+            alert('Please agree to the terms to create your account');
+            return;
+        }
+        
+        // Add loading state to submit button
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creating Account...';
+        submitBtn.disabled = true;
+    });
+
+    // Auto-focus username field
+    document.getElementById('username').focus();
+
+    // Add animation to the register card
+    const registerCard = document.querySelector('.register-card');
+    registerCard.style.opacity = '0';
+    registerCard.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+        registerCard.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        registerCard.style.opacity = '1';
+        registerCard.style.transform = 'translateY(0)';
+    }, 100);
+
+    // Animate benefit items
+    const benefitItems = document.querySelectorAll('.benefit-item');
+    benefitItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(10px)';
+        
+        setTimeout(() => {
+            item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, 600 + (index * 100));
+    });
+
+    // Add hover effects to benefit items
+    benefitItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+{% endblock %}

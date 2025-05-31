@@ -1,0 +1,137 @@
+[
+  {
+    "id": "f24d99a5-fce3-4aec-a646-4a03a1d22cae",
+    "user_id": "266713bf-005d-4a1f-a6d2-016180bb37f7",
+    "input_type": "text",
+    "content": "1. What is a micro-paper? \r\nA micro-paper is a paper between 1 and 4 pages in \r\nlength that engages a single idea clearly. A micro-paper \r\ncan be anything from focused blog post to a preprinted \r\nshort paper, but it is published through an open archive. \r\n2. The context of micro-papers \r\nIdeas and conversations often arise in research settings \r\nin response to problems, gaps, or issues. But some ideas \r\nand conversations also come about in a more generative \r\nfashion: they are still responding t...",
+    "summary": "A micro-paper is a paper between 1 and 4 pages in length that engages a single idea clearly Some avenues generate good or trustworthy knowledge and ideas, but the micro-paper is a place for sharing potentially useful ideas A micro-paper can be anything from focused blog post to a preprinted short paper, but it is published through an open archive",
+    "original_filename": null,
+    "created_at": "2025-05-27T17:22:30.713971"
+  },
+  {
+    "id": "d05de81b-facf-4c94-be21-2ff10887ad6a",
+    "user_id": "266713bf-005d-4a1f-a6d2-016180bb37f7",
+    "input_type": "pdf",
+    "content": "The Micro -Paper : Towards cheaper , citable  \nresearch ideas  and conversations  \nFRANK ELAVSKY , Carnegie Mellon University , fje@cmu.edu  \n \nAcademic, peer -reviewed “short” papers are a common way to present a late -breaking work to the academic \ncommunity that outlines preliminary findings, research ideas, and novel co nversations. By comparison, blogging or \nwriting posts on social media are an unstructured and open way to discuss ideas and start new conversations. Both \nhave limitations i...",
+    "summary": "To address this, I present: The Micro -Paper, as a micro-paper itself This meta micro -paper discusses the context, goals, and considerations of micro -paper authoring What is a micro -paper When is writing a micro -paper a good idea A micro -paper is a paper between 1 and 4 pages in length that engages a single idea clearly",
+    "original_filename": "2302.12854v2.pdf",
+    "created_at": "2025-05-27T17:23:40.067280"
+  },
+  {
+    "id": "b0ccf44a-5712-4f13-b403-aa61373946a6",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "pdf",
+    "content": "The Micro -Paper : Towards cheaper , citable  \nresearch ideas  and conversations  \nFRANK ELAVSKY , Carnegie Mellon University , fje@cmu.edu  \n \nAcademic, peer -reviewed “short” papers are a common way to present a late -breaking work to the academic \ncommunity that outlines preliminary findings, research ideas, and novel co nversations. By comparison, blogging or \nwriting posts on social media are an unstructured and open way to discuss ideas and start new conversations. Both \nhave limitations i...",
+    "summary": "To address this, I present: The Micro -Paper, as a micro-paper itself This meta micro -paper discusses the context, goals, and considerations of micro -paper authoring What is a micro -paper When is writing a micro -paper a good idea A micro -paper is a paper between 1 and 4 pages in length that engages a single idea clearly",
+    "original_filename": "2302.12854v2.pdf",
+    "created_at": "2025-05-27T18:27:45.576529"
+  },
+  {
+    "id": "68c7bed6-3d4b-46ee-b4cd-fe7253d04b56",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "pdf",
+    "content": "SAINT: Improved Neural Networks for Tabular Data\nvia Row Attention and Contrastive Pre-Training\nGowthami Somepalli\nDepartment of Computer Science\nUniversity of Maryland, College Park\ngowthami@umd.eduMicah Goldblum\nDepartment of Computer Science\nUniversity of Maryland, College Park\ngoldblum@umd.edu\nAvi Schwarzschild\nDepartment of Mathematics\nUniversity of Maryland, College Park\navi1@umd.eduC. Bayan Bruss\nCapital One\nCenter for Machine Learning\nbayan.bruss@capitalone.com\nTom Goldstein\nDepartment o...",
+    "summary": "We introduce SAINT, the Self-Attention and Intersample Attention Transformer, a specialized architecture for learning with tabular data SAINT-s variant has only self-attention, and SAINT-i has only intersample attention Figure 3b shows intersample attention in SAINT Study Variation SAINT-s SAINT-i SAINT 1no proj SAINT and SAINT-i models are comparatively more robust than SAINT-s",
+    "original_filename": "2106.01342v1.pdf",
+    "created_at": "2025-05-30T17:01:08.577559"
+  },
+  {
+    "id": "77999357-dc10-48a7-969a-4395445bf5e0",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "text",
+    "content": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale im\r\nage and video recognition (Krizhevsky et al., 2012; Zeiler & Fergus, 2013; Sermanet et al., 2014;\r\n Simonyan & Zisserman, 2014) which has become possible due to the large public image reposito\r\nries, such as ImageNet (Deng et al., 2009), and high-performancecomputingsystems, such as GPUs\r\n or large-scale distributed clusters (Dean et al., 2012). In particular, an important role in the advance\r\n of deep vis...",
+    "summary": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale im age and video recognition (Krizhevsky et al., 2012; Zeiler & Fergus, 2013; Sermanet et al., 2014; Simonyan & Zisserman, 2014) which has become possible due to the large public image reposito ries, such as ImageNet (Deng et al., 2009), and high-performancecomputingsystems, such as GPUs or large-scale distributed clusters (Dean et al., 2012)",
+    "original_filename": null,
+    "created_at": "2025-05-31T05:45:32.186528"
+  },
+  {
+    "id": "a8ea209f-ad40-42d4-9c1d-12a4ff3248fc",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "batch_pdf",
+    "content": "Batch processing of 2 files: de4cd52d-7262-412f-acea-099f8f8bfec6.pdf, 42dbc541-6a5d-4657-a9ad-aa35b352871b.pdf",
+    "summary": "**de4cd52d-7262-412f-acea-099f8f8bfec6.pdf:**\nTo address this, I present: The Micro -Paper, as a micro-paper itself This meta micro -paper discusses the context, goals, and considerations of micro -paper authoring What is a micro -paper When is writing a micro -paper a good idea A micro -paper is a paper between 1 and 4 pages in length that engages a single idea clearly\n\n**42dbc541-6a5d-4657-a9ad-aa35b352871b.pdf:**\nWe introduce SAINT, the Self-Attention and Intersample Attention Transformer, a specialized architecture for learning with tabular data SAINT-s variant has only self-attention, and SAINT-i has only intersample attention Figure 3b shows intersample attention in SAINT Study Variation SAINT-s SAINT-i SAINT 1no proj SAINT and SAINT-i models are comparatively more robust than SAINT-s",
+    "original_filename": "2 files",
+    "created_at": "2025-05-31T05:46:13.283622"
+  },
+  {
+    "id": "36bb8f1f-a71c-49f4-ac40-6b3e5caa924d",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "url",
+    "content": "URL: https://arxiv.org/abs/1409.1556\n\nComputer Science > Computer Vision and Pattern Recognition\n[Submitted on 4 Sep 2014 (v1), last revised 10 Apr 2015 (this version, v6)]\nTitle:Very Deep Convolutional Networks for Large-Scale Image Recognition\nView PDFAbstract:In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small (3x3) convolution filt...",
+    "summary": "Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy arXiv is committed to these values and only works with partners that adhere to them Computer Science > Computer Vision and Pattern Recognition [Submitted on 4 Sep 2014 (v1), last revised 10 Apr 2015 (this version, v6)] Title:Very Deep Convolutional Networks for Large-Scale Image Recognition View PDFAbstract:In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting",
+    "original_filename": null,
+    "created_at": "2025-05-31T05:48:42.479406"
+  },
+  {
+    "id": "82423a56-d462-4de9-bee9-32726fa3defb",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "text",
+    "content": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale im\r\nage and video recognition (Krizhevsky et al., 2012; Zeiler & Fergus, 2013; Sermanet et al., 2014;\r\n Simonyan & Zisserman, 2014) which has become possible due to the large public image reposito\r\nries, such as ImageNet (Deng et al., 2009), and high-performancecomputingsystems, such as GPUs\r\n or large-scale distributed clusters (Dean et al., 2012). In particular, an important role in the advance\r\n of deep vis...",
+    "summary": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale image recognition and video recognition. With ConvNets becoming more of a commodity in the computer vision field, a number of attempts have been made to improve the original architecture of Krizhevsky et al. (2012) In this paper, we address another important aspect of ConvNet architecture – its depth. We come up with significantly more accurate ConvNet architectures, which achieve the state-of-the-art accuracy on ILSVRC classification and localisation tasks.",
+    "original_filename": null,
+    "created_at": "2025-05-31T05:55:23.551268"
+  },
+  {
+    "id": "fd0ad0b0-4b02-42f9-abfd-566694bc255e",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "text",
+    "content": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale im\r\nage and video recognition (Krizhevsky et al., 2012; Zeiler & Fergus, 2013; Sermanet et al., 2014;\r\n Simonyan & Zisserman, 2014) which has become possible due to the large public image reposito\r\nries, such as ImageNet (Deng et al., 2009), and high-performancecomputingsystems, such as GPUs\r\n or large-scale distributed clusters (Dean et al., 2012). In particular, an important role in the advance\r\n of deep vis...",
+    "summary": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale image recognition and video recognition. With ConvNets becoming more of a commodity in the computer vision field, a number of attempts have been made to improve the original architecture of Krizhevsky et al. (2012) In this paper, we address another important aspect of ConvNet architecture – its depth. We come up with significantly more accurate ConvNet architectures, which achieve the state-of-the-art accuracy on ILSVRC classification and localisation tasks.",
+    "original_filename": null,
+    "created_at": "2025-05-31T05:55:55.248464"
+  },
+  {
+    "id": "115a4fb1-8e59-46aa-b239-b2034dc9732b",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "pdf",
+    "content": "SAINT: Improved Neural Networks for Tabular Data\nvia Row Attention and Contrastive Pre-Training\nGowthami Somepalli\nDepartment of Computer Science\nUniversity of Maryland, College Park\ngowthami@umd.eduMicah Goldblum\nDepartment of Computer Science\nUniversity of Maryland, College Park\ngoldblum@umd.edu\nAvi Schwarzschild\nDepartment of Mathematics\nUniversity of Maryland, College Park\navi1@umd.eduC. Bayan Bruss\nCapital One\nCenter for Machine Learning\nbayan.bruss@capitalone.com\nTom Goldstein\nDepartment o...",
+    "summary": "SAINT: Improved Neural Networks for Tabular Datavia Row Attention and Contrastive Pre-Training is published by the University of Maryland, College Park. It is a hybrid deep learning approach to solving tabular data problems. SAINT consistently improves performance over previous deeplearning methods, and it even outperforms gradient boosting methods.",
+    "original_filename": "2106.01342v1.pdf",
+    "created_at": "2025-05-31T05:57:27.733023"
+  },
+  {
+    "id": "df70603a-e73a-40b9-960b-a127ea61fc6d",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "batch_pdf",
+    "content": "Batch processing of 2 files: 68b2bb36-ea98-456a-92b1-077dd17c88c1.pdf, aa7d0f90-261d-4b3d-a819-326179678beb.pdf",
+    "summary": "**68b2bb36-ea98-456a-92b1-077dd17c88c1.pdf:**\nThe Micro -Paper is a small, cheap, accessible, digital document that is self -published and archived. It fills a gap on the spectrum between fast, cheap ideas and rigorous, archival work. A micro -paper is a paper between 1 and 4 pages in length that engages a single idea clearly. It can be anything from a focused blog post to a preprint ed short paper.\n\n**aa7d0f90-261d-4b3d-a819-326179678beb.pdf:**\nSAINT: Improved Neural Networks for Tabular Datavia Row Attention and Contrastive Pre-Training is published by the University of Maryland, College Park. It is a hybrid deep learning approach to solving tabular data problems. SAINT consistently improves performance over previous deeplearning methods, and it even outperforms gradient boosting methods.",
+    "original_filename": "2 files",
+    "created_at": "2025-05-31T05:58:59.420285"
+  },
+  {
+    "id": "9707b122-64c0-48cc-808d-f090c3062bee",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "text",
+    "content": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale im\r\nage and video recognition (Krizhevsky et al., 2012; Zeiler & Fergus, 2013; Sermanet et al., 2014;\r\n Simonyan & Zisserman, 2014) which has become possible due to the large public image reposito\r\nries, such as ImageNet (Deng et al., 2009), and high-performancecomputingsystems, such as GPUs\r\n or large-scale distributed clusters (Dean et al., 2012). In particular, an important role in the advance\r\n of deep vis...",
+    "summary": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale image recognition and video recognition. With ConvNets becoming more of a commodity in the computer vision field, a number of attempts have been made to improve the original architecture of Krizhevsky et al. (2012) In this paper, we address another important aspect of ConvNet architecture – its depth. We come up with significantly more accurate ConvNet architectures, which achieve the state-of-the-art accuracy on ILSVRC classification and localisation tasks.",
+    "original_filename": null,
+    "created_at": "2025-05-31T06:28:34.775459"
+  },
+  {
+    "id": "7a57cf28-9493-4a98-87fb-dcb9a24cf448",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "text",
+    "content": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale im\r\nage and video recognition (Krizhevsky et al., 2012; Zeiler & Fergus, 2013; Sermanet et al., 2014;\r\n Simonyan & Zisserman, 2014) which has become possible due to the large public image reposito\r\nries, such as ImageNet (Deng et al., 2009), and high-performancecomputingsystems, such as GPUs\r\n or large-scale distributed clusters (Dean et al., 2012). In particular, an important role in the advance\r\n of deep vis...",
+    "summary": "Convolutional networks (ConvNets) have recently enjoyed a great success in large-scale image recognition and video recognition. With ConvNets becoming more of a commodity in the computer vision field, a number of attempts have been made to improve the original architecture of Krizhevsky et al. (2012) In this paper, we address another important aspect of ConvNet architecture – its depth. We come up with significantly more accurate ConvNet architectures, which achieve the state-of-the-art accuracy on ILSVRC classification and localisation tasks.",
+    "original_filename": null,
+    "created_at": "2025-05-31T06:32:18.910127"
+  },
+  {
+    "id": "16a047c6-2976-42b7-ab6c-bf46396af15b",
+    "user_id": "55779a30-58b9-4f5a-83b4-6cb21b76eb68",
+    "input_type": "pdf",
+    "content": "SAINT: Improved Neural Networks for Tabular Data\nvia Row Attention and Contrastive Pre-Training\nGowthami Somepalli\nDepartment of Computer Science\nUniversity of Maryland, College Park\ngowthami@umd.eduMicah Goldblum\nDepartment of Computer Science\nUniversity of Maryland, College Park\ngoldblum@umd.edu\nAvi Schwarzschild\nDepartment of Mathematics\nUniversity of Maryland, College Park\navi1@umd.eduC. Bayan Bruss\nCapital One\nCenter for Machine Learning\nbayan.bruss@capitalone.com\nTom Goldstein\nDepartment o...",
+    "summary": "SAINT: Improved Neural Networks for Tabular Datavia Row Attention and Contrastive Pre-Training is published by the University of Maryland, College Park. It is a hybrid deep learning approach to solving tabular data problems. SAINT consistently improves performance over previous deeplearning methods, and it even outperforms gradient boosting methods.",
+    "original_filename": "2106.01342v1.pdf",
+    "created_at": "2025-05-31T06:33:23.247309"
+  },
+  {
+    "id": "c085002c-f2e8-4de2-a310-98b4330bfd7a",
+    "user_id": "2a314d17-c2ed-4889-9b45-db22c23e3b81",
+    "input_type": "pdf",
+    "content": "The Micro -Paper : Towards cheaper , citable  \nresearch ideas  and conversations  \nFRANK ELAVSKY , Carnegie Mellon University , fje@cmu.edu  \n \nAcademic, peer -reviewed “short” papers are a common way to present a late -breaking work to the academic \ncommunity that outlines preliminary findings, research ideas, and novel co nversations. By comparison, blogging or \nwriting posts on social media are an unstructured and open way to discuss ideas and start new conversations. Both \nhave limitations i...",
+    "summary": "The Micro -Paper is a small, cheap, accessible, digital document that is self -published and archived. It fills a gap on the spectrum between fast, cheap ideas and rigorous, archival work. A micro -paper is a paper between 1 and 4 pages in length that engages a single idea clearly. It can be anything from a focused blog post to a preprint ed short paper.",
+    "original_filename": "2302.12854v2.pdf",
+    "created_at": "2025-05-31T08:06:38.829083"
+  }
+]

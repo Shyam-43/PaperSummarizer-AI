@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}Login - PaperSummarizer AI{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <!-- Login Card -->
+            <div class="card login-card">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i data-feather="log-in" class="me-2"></i>Welcome Back
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <p class="text-center text-muted mb-4">
+                        Sign in to access your personalized summarization dashboard
+                    </p>
+                    
+                    <form method="POST" id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">
+                                <i data-feather="user" class="me-2"></i>Username
+                            </label>
+                            <input type="text" class="form-control form-control-lg" 
+                                   id="username" name="username" required 
+                                   placeholder="Enter your username"
+                                   value="{{ request.form.username if request.form.username }}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                <i data-feather="lock" class="me-2"></i>Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg" 
+                                       id="password" name="password" required 
+                                       placeholder="Enter your password">
+                                <button class="btn btn-outline-secondary" type="button" 
+                                        id="togglePassword" title="Show/Hide Password">
+                                    <i data-feather="eye" id="eyeIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" 
+                                       id="rememberMe" name="remember_me">
+                                <label class="form-check-label" for="rememberMe">
+                                    Remember me for 30 days
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i data-feather="log-in" class="me-2"></i>Sign In
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="card-footer text-center bg-light">
+                    <p class="mb-0 text-primary ">
+                        Don't have an account? 
+                        <a href="{{ url_for('auth.register') }}" class="text-primary text-decoration-none fw-bold">
+                            Create one here
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feature Highlights -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="text-center">
+                        <h6 class="text-muted mb-3">Why create an account?</h6>
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div class="feature-highlight">
+                                    <i data-feather="save" class="text-primary mb-2"></i>
+                                    <small class="text-muted d-block">Save History</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="feature-highlight">
+                                    <i data-feather="layers" class="text-success mb-2"></i>
+                                    <small class="text-muted d-block">Batch Processing</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="feature-highlight">
+                                    <i data-feather="shield" class="text-info mb-2"></i>
+                                    <small class="text-muted d-block">Secure Access</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Password visibility toggle
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordField = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            eyeIcon.setAttribute('data-feather', 'eye-off');
+        } else {
+            passwordField.type = 'password';
+            eyeIcon.setAttribute('data-feather', 'eye');
+        }
+        
+        // Re-initialize feather icons
+        feather.replace();
+    });
+
+    // Form validation and loading state
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        
+        if (!username || !password) {
+            e.preventDefault();
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        // Add loading state to submit button
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Signing In...';
+        submitBtn.disabled = true;
+    });
+
+    // Auto-focus username field
+    document.getElementById('username').focus();
+
+    // Add animation to the login card
+    const loginCard = document.querySelector('.login-card');
+    loginCard.style.opacity = '0';
+    loginCard.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+        loginCard.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        loginCard.style.opacity = '1';
+        loginCard.style.transform = 'translateY(0)';
+    }, 100);
+
+    // Animate feature highlights
+    const highlights = document.querySelectorAll('.feature-highlight');
+    highlights.forEach((highlight, index) => {
+        highlight.style.opacity = '0';
+        highlight.style.transform = 'translateY(10px)';
+        
+        setTimeout(() => {
+            highlight.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            highlight.style.opacity = '1';
+            highlight.style.transform = 'translateY(0)';
+        }, 600 + (index * 100));
+    });
+
+    // Add hover effects to feature highlights
+    highlights.forEach(highlight => {
+        highlight.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        highlight.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+{% endblock %}

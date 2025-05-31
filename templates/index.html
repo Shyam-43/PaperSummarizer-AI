@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+
+{% block title %}Home - PaperSummarizer AI{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <!-- Welcome Section -->
+        <div class="col-12 text-center mb-5">
+            <h1 class="display-4 fw-bold mb-3">
+                <i data-feather="zap" class="text-primary"></i>
+                AI-Powered Paper Summarizer
+            </h1>
+            <p class="lead text-muted">
+                Transform lengthy documents into concise, intelligent summaries using advanced BART neural networks.
+            </p>
+        </div>
+    </div>
+
+    {% if not current_user.is_authenticated %}
+    <!-- Login Required Message -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-primary">
+                <div class="card-body text-center py-5">
+                    <i data-feather="lock" class="text-primary mb-3" style="width: 48px; height: 48px;"></i>
+                    <h4 class="card-title">Authentication Required</h4>
+                    <p class="card-text text-muted mb-4">
+                        Please log in or create an account to access the summarization features.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('auth.login') }}" class="btn btn-primary">
+                            <i data-feather="log-in" class="me-2"></i>Login
+                        </a>
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-outline-primary">
+                            <i data-feather="user-plus" class="me-2"></i>Register
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    
+    <!-- Summarization Interface -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Input Type Tabs -->
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="inputTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="text-tab" data-bs-toggle="tab" 
+                                    data-bs-target="#text-pane" type="button" role="tab">
+                                <i data-feather="type" class="me-2"></i>Text
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="url-tab" data-bs-toggle="tab" 
+                                    data-bs-target="#url-pane" type="button" role="tab">
+                                <i data-feather="link" class="me-2"></i>URL
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pdf-tab" data-bs-toggle="tab" 
+                                    data-bs-target="#pdf-pane" type="button" role="tab">
+                                <i data-feather="file-text" class="me-2"></i>PDF
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="batch-tab" data-bs-toggle="tab" 
+                                    data-bs-target="#batch-pane" type="button" role="tab">
+                                <i data-feather="folder" class="me-2"></i>Batch PDF
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-body">
+                    <div class="tab-content" id="inputTabsContent">
+                        <!-- Text Input -->
+                        <div class="tab-pane fade show active" id="text-pane" role="tabpanel">
+                            <form method="POST" action="{{ url_for('main.summarize') }}" id="textForm">
+                                <input type="hidden" name="input_type" value="text">
+                                <div class="mb-3">
+                                    <label for="textContent" class="form-label">
+                                        <i data-feather="edit-3" class="me-2"></i>Enter text to summarize
+                                    </label>
+                                    <textarea class="form-control" id="textContent" name="text_content" 
+                                              rows="8" placeholder="Paste your text here (minimum 50 characters)..." 
+                                              required></textarea>
+                                    <div class="form-text">
+                                        Text must be between 50 and 50,000 characters.
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i data-feather="cpu" class="me-2"></i>Summarize Text
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- URL Input -->
+                        <div class="tab-pane fade" id="url-pane" role="tabpanel">
+                            <form method="POST" action="{{ url_for('main.summarize') }}" id="urlForm">
+                                <input type="hidden" name="input_type" value="url">
+                                <div class="mb-3">
+                                    <label for="urlContent" class="form-label">
+                                        <i data-feather="globe" class="me-2"></i>Enter URL to summarize
+                                    </label>
+                                    <input type="url" class="form-control" id="urlContent" name="url_content" 
+                                           placeholder="https://example.com/article" required>
+                                    <div class="form-text">
+                                        Enter a valid URL to extract and summarize the main content.
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i data-feather="download" class="me-2"></i>Extract & Summarize
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- PDF Upload -->
+                        <div class="tab-pane fade" id="pdf-pane" role="tabpanel">
+                            <form method="POST" action="{{ url_for('main.summarize') }}" 
+                                  enctype="multipart/form-data" id="pdfForm">
+                                <input type="hidden" name="input_type" value="pdf">
+                                <div class="mb-3">
+                                    <label for="pdfFile" class="form-label">
+                                        <i data-feather="upload" class="me-2"></i>Upload PDF file
+                                    </label>
+                                    <input type="file" class="form-control" id="pdfFile" name="pdf_file" 
+                                           accept=".pdf" required>
+                                    <div class="form-text">
+                                        Maximum file size: 10MB. Only PDF files are accepted.
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i data-feather="upload-cloud" class="me-2"></i>Upload & Summarize
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- Batch PDF Upload -->
+                        <div class="tab-pane fade" id="batch-pane" role="tabpanel">
+                            <form method="POST" action="{{ url_for('main.summarize') }}" 
+                                  enctype="multipart/form-data" id="batchForm">
+                                <input type="hidden" name="input_type" value="batch_pdf">
+                                <div class="mb-3">
+                                    <label for="batchFiles" class="form-label">
+                                        <i data-feather="folder" class="me-2"></i>Upload multiple PDF files
+                                    </label>
+                                    <input type="file" class="form-control" id="batchFiles" name="batch_pdf_files" 
+                                           accept=".pdf" multiple required>
+                                    <div class="form-text">
+                                        Select multiple PDF files. Maximum 10MB per file.
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i data-feather="layers" class="me-2"></i>Process Batch
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="text-center my-4" style="display: none;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Processing...</span>
+                </div>
+                <p class="mt-3 text-muted">Processing your request... This may take a few moments.</p>
+            </div>
+            
+            <!-- Results Section -->
+            {% if summary %}
+            <div class="card mt-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i data-feather="check-circle" class="me-2"></i>Summary Generated
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if input_type == 'text' %}
+                        <h6 class="text-muted mb-3">Original Text Preview:</h6>
+                        <div class="bg-secondary p-3 rounded mb-3">
+                            <small>{{ original_content }}</small>
+                        </div>
+                    {% elif input_type == 'url' %}
+                        <h6 class="text-muted mb-3">Source URL:</h6>
+                        <div class="bg-secondary p-3 rounded mb-3">
+                            <small><a href="{{ original_url }}" target="_blank" class="text-primary">{{ original_url }}</a></small>
+                        </div>
+                        <h6 class="text-muted mb-3">Content Preview:</h6>
+                        <div class="bg-secondary p-3 rounded mb-3">
+                            <small>{{ original_content }}</small>
+                        </div>
+                    {% elif input_type == 'pdf' %}
+                        <h6 class="text-muted mb-3">Source File:</h6>
+                        <div class="bg-secondary p-3 rounded mb-3">
+                            <small><i data-feather="file" class="me-2"></i>{{ original_filename }}</small>
+                        </div>
+                        <h6 class="text-muted mb-3">Content Preview:</h6>
+                        <div class="bg-secondary p-3 rounded mb-3">
+                            <small>{{ original_content }}</small>
+                        </div>
+                    {% endif %}
+                    
+                    <h6 class="text-primary mb-3">Summary:</h6>
+                    <div class="border-start border-primary border-3 ps-3">
+                        <p class="mb-0">{{ summary }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if batch_summaries %}
+            <div class="card mt-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i data-feather="check-circle" class="me-2"></i>Batch Processing Complete
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="accordion" id="batchAccordion">
+                        {% for filename, summary in batch_summaries %}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button{% if not loop.first %} collapsed{% endif %}" 
+                                        type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#collapse{{ loop.index }}">
+                                    <i data-feather="file-text" class="me-2"></i>{{ filename }}
+                                </button>
+                            </h2>
+                            <div id="collapse{{ loop.index }}" 
+                                 class="accordion-collapse collapse{% if loop.first %} show{% endif %}" 
+                                 data-bs-parent="#batchAccordion">
+                                <div class="accordion-body">
+                                    <div class="border-start border-primary border-3 ps-3">
+                                        {{ summary }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    {% if failed_files %}
+                    <div class="mt-4">
+                        <h6 class="text-warning">Failed Files:</h6>
+                        <ul class="list-group">
+                            {% for filename, error in failed_files %}
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div>
+                                    <strong>{{ filename }}</strong>
+                                    <br><small class="text-muted">{{ error }}</small>
+                                </div>
+                                <span class="badge bg-warning rounded-pill">Failed</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Handle form submissions with loading spinner
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            document.getElementById('loadingSpinner').style.display = 'block';
+        });
+    });
+    
+    // Character counter for text input
+    const textArea = document.getElementById('textContent');
+    if (textArea) {
+        textArea.addEventListener('input', function() {
+            const length = this.value.length;
+            const helpText = this.nextElementSibling;
+            helpText.textContent = `${length} characters (minimum 50, maximum 50,000)`;
+            
+            if (length < 50) {
+                helpText.className = 'form-text text-warning';
+            } else if (length > 50000) {
+                helpText.className = 'form-text text-danger';
+            } else {
+                helpText.className = 'form-text text-success';
+            }
+        });
+    }
+</script>
+{% endblock %}
